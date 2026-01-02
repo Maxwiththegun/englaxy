@@ -1,0 +1,407 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Вивчаю англійську</title>
+ <meta name="description" content="Learn English with games, space visuals and interactive vocabulary.">
+<meta name="keywords" content="learn english, english vocabulary, english game, space learning">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            padding-top: 30px;
+
+            background: radial-gradient(circle at top, #1b2735 0%, #090a0f 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+       body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 300%;
+    height: 300%;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, #ffffff, transparent),
+        radial-gradient(1px 1px at 20% 80%, #cfe3ff, transparent),
+        radial-gradient(1px 1px at 30% 40%, #ffffff, transparent),
+        radial-gradient(1px 1px at 40% 60%, #bcdcff, transparent),
+        radial-gradient(1px 1px at 50% 10%, #ffffff, transparent),
+        radial-gradient(1px 1px at 60% 90%, #e0f7ff, transparent),
+        radial-gradient(1px 1px at 70% 30%, #ffffff, transparent),
+        radial-gradient(1px 1px at 80% 70%, #a7c7ff, transparent),
+        radial-gradient(1px 1px at 90% 50%, #ffffff, transparent),
+
+        radial-gradient(3px 3px at 15% 60%, #ffffff, transparent),
+        radial-gradient(3px 3px at 35% 25%, #d9ecff, transparent),
+        radial-gradient(3px 3px at 55% 75%, #ffffff, transparent),
+        radial-gradient(3px 3px at 75% 15%, #bcdcff, transparent),
+
+        radial-gradient(5px 5px at 25% 45%, #ffffff, transparent),
+        radial-gradient(6px 6px at 65% 35%, #e0f7ff, transparent);
+
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: starsMove 120s linear infinite;
+    opacity: 0.8;
+    z-index: -1;
+}
+body::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    width: 140%;
+    height: 140%;
+    background:
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(186, 85, 255, 0.25),
+            rgba(79, 172, 254, 0.15),
+            rgba(27, 39, 53, 0.1),
+            transparent 60%
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(255, 120, 200, 0.18),
+            rgba(143, 211, 255, 0.12),
+            transparent 55%
+        );
+    filter: blur(60px);
+    transform-origin: center;
+    z-index: -2;
+    transition: transform 0.1s ease-out;
+}
+
+          @keyframes starsMove {
+            from { transform: translateY(0); }
+            to { transform: translateY(-500px); }
+        }
+
+         h1 {
+        font-size: 3em;
+        margin-bottom: 25px;
+        text-align: center;
+        color: #8fd3ff;
+        text-shadow:
+            0 0 8px rgba(143, 211, 255, 0.8),
+            0 0 18px rgba(79, 172, 254, 0.6);
+        letter-spacing: 2px;
+        }
+        p {
+        font-size: 1.15em;
+        width: 80%;
+        max-width: 800px;
+        margin: 10px 0;
+        color: #d7e3ff;
+        text-decoration: none;
+        background: linear-gradient(
+            90deg,
+            rgba(79, 172, 254, 0.08),
+            rgba(143, 211, 255, 0.05)
+        );
+        padding: 12px 16px;
+        border-radius: 14px;
+        box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        backdrop-filter: blur(4px);
+    }
+
+    p:hover {
+        box-shadow: 0 0 30px rgba(143, 211, 255, 0.4);
+        transform: translateY(-2px);
+        transition: 0.3s ease;
+    }
+.video-link {
+    margin-top: 35px;
+    text-decoration: none;
+}
+
+.video-preview {
+    position: relative;
+    width: 560px;
+    max-width: 90vw;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(143, 211, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-preview img {
+    width: 100%;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    color: white;
+    background: rgba(0, 0, 0, 0.35);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.video-preview:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 50px rgba(143, 211, 255, 0.7);
+}
+
+.video-preview:hover .play-button {
+    background: rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+} 
+#discordBtn, #youtubeBtn, #tiktokBtn { 
+    position: fixed;
+    right: 20px;
+    width: 150px; 
+    height: 45px; 
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+#discordBtn {
+    top: 20px;
+    background: linear-gradient(135deg, #7289da, #99aab5);
+    box-shadow: 0 0 15px rgba(114, 137, 218, 0.7);
+}
+
+#youtubeBtn {
+    top: 70px;
+    background: linear-gradient(135deg, #FF0000, #FF5555);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+#tiktokBtn {
+    top: 120px;
+    background: linear-gradient(135deg, #69C9D0, #EE1D52);
+    box-shadow: 0 0 20px rgba(238, 29, 82, 0.7);
+}
+
+#discordBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(114, 137, 218, 0.9);
+}
+#youtubeBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
+}
+#tiktokBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px rgba(238, 29, 82, 0.9);
+}
+ .videos-wrapper {
+    display: flex;
+    flex-direction: row;      
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    width: 100%;              
+}
+@media (max-width: 1200px) {
+    .videos-wrapper {
+        flex-direction: column;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+            <h1>Вивчаю англійську</h1>
+            <p>1.Don't remind me - не нагадуй мені про це;</p>
+            <p>2.Generous - щедрий;</p>
+            <p>3.Burn the midnight oil – Працювати до пізна, дуже багато працювати;</p> 
+            <p>4.The ball is in your court - Тепер твій хід;</p>
+            <p>5.Jump on the bandwagon – Приєднатися до популярної або модної ідеї чи тренду;</p>
+            <p>6.To hit the nail on the head – Точно сказати;</p>
+            <p>7.I appreciate it – Я вдячний  за це;</p>
+            <p>8.Acquire – здобувати, отримувати;</p>
+            <p>9.Approach – підхід, метод;</p>
+            <p>10.Contribute – сприяти, робити внесок;</p>
+            <p>11.Considerable – значний, помітний;</p>
+            <p>12.Establish – встановлювати, засновувати;</p>
+            <p>13.Maintain – підтримувати;</p>
+            <p>14.Significant – важливий, значущий;</p>
+            <p>15.Achieve – досягати;</p>
+            <p>16.Achievement – досягнення;</p>
+            <p>17.Influence – вплив;</p>
+            <p>18.Resource – ресурс;</p>
+            <p>19.Solution – рішення;</p>
+            <p>20.Responsibility – відповідальність;</p>
+            <p>21.Knowledge – знання;</p>
+            <p>22.Decision – рішення;</p>
+            <p>23.Evidence – доказ;</p>
+            <p>24.Effort – зусилля;</p>
+            <p>25.Failure – невдача;</p>
+            <p>26.Threat – загроза;</p>
+            <p>27.Benefit – користь;</p>
+            <p>28.Awareness – усвідомлення;</p>
+            <p>29.Confidence – впевненість;</p>
+            <p>30.Equality – рівність;</p>
+
+  <div class="videos-wrapper">
+
+    <a class="video-link"
+       href="https://www.youtube.com/watch?v=BX0lKSa_PTk"
+       target="_blank">
+        <div class="video-preview">
+            <img src="https://img.youtube.com/vi/BX0lKSa_PTk/maxresdefault.jpg">
+            <div class="play-button">▶</div>
+        </div>
+    </a>
+
+    <a class="video-link"
+       href="https://www.youtube.com/watch?v=8F2s8ivKXNY"
+       target="_blank">
+        <div class="video-preview">
+            <img src="https://img.youtube.com/vi/8F2s8ivKXNY/maxresdefault.jpg">
+            <div class="play-button">▶</div>
+        </div>
+    </a>
+
+</div>
+
+ <button id="discordBtn">💬 Discord</button>
+ <button id="youtubeBtn">▶ YouTube</button>
+ <button id="tiktokBtn">🎵 TikTok</button>
+ 
+ <script>
+    const discordBtn = document.getElementById('discordBtn');
+
+    discordBtn.addEventListener('click', () => {
+        const discordLink = "https://discord.gg/1370734113266335755"; 
+        window.open(discordLink, "_blank", "width=500,height=700");
+    });
+</script>
+<script>
+    const youtubeBtn = document.getElementById('youtubeBtn');
+
+    youtubeBtn.addEventListener('click', () => {
+        const youtubeLink = "https://www.youtube.com/@Maxwithegun"; 
+        window.open(youtubeLink, "_blank", "width=800,height=600");
+    });
+</script>
+ <script>
+    const tiktokBtn = document.getElementById('tiktokBtn');
+
+    tiktokBtn.addEventListener('click', () => {
+        const tiktokLink = "https://www.tiktok.com/@__exampl3__"; 
+        window.open(tiktokLink, "_blank", "width=800,height=600");
+    });
+</script>
+<script>
+    const galaxy = document.body;
+
+    document.addEventListener("mousemove", (e) => {
+        const x = e.clientX / window.innerWidth - 0.5; // -0.5 → 0.5
+        const y = e.clientY / window.innerHeight - 0.5;
+
+        document.body.style.setProperty('--galaxy-rotate-x', `${y * 10}deg`);
+        document.body.style.setProperty('--galaxy-rotate-y', `${x * 20}deg`);
+    });
+</script>
+
+<!-- Канвас гри -->
+<canvas id="spaceGame" width="800" height="400" style="display:none; margin: 50px auto; border-radius: 12px; background: transparent;"></canvas>
+
+<script>
+
+const canvas = document.getElementById('spaceGame');
+const ctx = canvas.getContext('2d');
+const startBtn = document.getElementById('startGameBtn');
+const stopBtn = document.getElementById('stopGameBtn');
+
+let gameStarted = false;
+let score = 0;
+let animationId; 
+const ship = { x: canvas.width/2 - 20, y: canvas.height - 50, width: 40, height: 40, speed: 5 };
+const keys = {};
+const words = [
+    {text: "Generous", x: 100, y: -50},
+    {text: "Jump on the bandwagon", x: 300, y: -150},
+    {text: "Burn the midnight oil", x: 500, y: -100},
+    {text: "Don't remind me", x: 700, y: -200}
+];
+
+canvas.style.display = 'none'; 
+
+document.addEventListener('keydown', e => keys[e.key] = true);
+document.addEventListener('keyup', e => keys[e.key] = false);
+
+
+startBtn.addEventListener('click', () => {
+    canvas.style.display = 'block';
+    startBtn.style.display = 'none';
+    stopBtn.style.display = 'block';
+    gameStarted = true;
+    gameLoop();
+});
+
+
+stopBtn.addEventListener('click', () => {
+    gameStarted = false;
+    cancelAnimationFrame(animationId);
+    stopBtn.style.display = 'none';
+    startBtn.style.display = 'block';
+});
+
+function gameLoop() {
+    if (!gameStarted) return;
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    
+    if(keys['ArrowLeft'] && ship.x > 0) ship.x -= ship.speed;
+    if(keys['ArrowRight'] && ship.x + ship.width < canvas.width) ship.x += ship.speed;
+    if(keys['ArrowUp'] && ship.y > 0) ship.y -= ship.speed;
+    if(keys['ArrowDown'] && ship.y + ship.height < canvas.height) ship.y += ship.speed;
+
+    
+    ctx.fillStyle = '#8fd3ff';
+    ctx.fillRect(ship.x, ship.y, ship.width, ship.height);
+
+    // слова
+    ctx.fillStyle = '#fff';
+    ctx.font = '18px Arial';
+    for(let w of words) {
+        w.y += 2;
+        ctx.fillText(w.text, w.x, w.y);
+
+        if(w.y >= ship.y && w.y <= ship.y + ship.height && w.x >= ship.x - 30 && w.x <= ship.x + ship.width) {
+            score += 1;
+            w.y = -Math.random()*200 - 50; 
+            w.x = Math.random()*(canvas.width - 100);
+        }
+
+        if(w.y > canvas.height + 50) {
+            w.y = -Math.random()*200 - 50;
+            w.x = Math.random()*(canvas.width - 100);
+        }
+    }
+
+    document.getElementById('score').innerText = `Очки: ${score}`;
+    animationId = requestAnimationFrame(gameLoop);
+}
+</script>
+
+
+
+
+</body>
+</html>
+
+ 
